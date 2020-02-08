@@ -1,0 +1,43 @@
+<%- include("../partials/header") %> 
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h2 class="lead">YealCamp</h2>
+            <div class="list-group">
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item">Info 1</li>
+                <li class="list-group-item">Info 1</li>
+                <li class="list-group-item">Info 1</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="border p-0">
+                <img class="w-100" src="<%= campground.image %> " alt="">
+                <div class="m-3 d-flex justify-content-between">
+                    <h3><a href="#"><%= campground.name %> </a></h3>
+                    <span class="font-weight-bold ml-auto">$9.99/night</span>
+                </div>
+                <p class="m-3"><%= campground.description %></p>
+            </div>
+            <div class="border my-4 p-3" style="background-color: #f8f9fa">
+                <div class="text-right">
+                    <a href="/campgrounds/<%= campground._id %>/comments/new" class="btn btn-success">Leave a Review</a>
+                </div>
+                <hr>
+                <% campground.comments.forEach(comment => { %>
+                    <div>
+                        <strong><%= comment.author %> </strong> 
+                        <span class="float-right">10 days ago</span>
+                        <p>
+                            <%= comment.text %> 
+                        </p>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("../partials/footer") %> 

@@ -1,8 +1,8 @@
-<%- include("partials/header") %> 
+<%- include("../partials/header") %> 
 <h2 class="text-center mt-4"> Create a new Campground</h2>
 
 <div class="container d-flex justify-content-center mt-4">
-    <form action="/campgrounds" method="post" class="col-8">
+    <form action="/campgrounds" method="POST" class="col-8">
         <div class="form-group">
             <label for="name">Name</label>
             <input class="form-control" type="text" id="name" name="name" placeholder="name">
@@ -22,4 +22,4 @@
     </form>
 </div>
 
-<%- include("partials/footer") %> 
+<%- include("../partials/footer") %> 
