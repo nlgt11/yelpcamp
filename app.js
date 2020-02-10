@@ -7,7 +7,8 @@ const   express         = require("express"),
         seedDB          = require("./seeds"),
         passport        = require("passport"),
         LocalStrategy   = require("passport-local"),
-        User            = require("./models/user");
+        User            = require("./models/user"),
+        methodOverride  = require("method-override");
 
 var     commentRoutes       = require("./routes/comments"),
         campgroundRoutes    = require("./routes/campgrounds"),
@@ -33,6 +34,7 @@ mongoose.set('useUnifiedTopology', true);
 // MIDDLE WARES
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
