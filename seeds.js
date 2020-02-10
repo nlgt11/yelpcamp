@@ -28,19 +28,19 @@ async function seedDB() {
         await Comment.remove({});
         console.log("Comments removed");
         
-        for (const seed of seeds) {
-            let campground = await Campground.create(seed);
-            console.log("CREATED A CAMPGROUND");
-            let comment = await Comment.create(
-                {
-                    text: "This place is greate, but i wish there were a toilet",
-                    author: "Homer"
-                }
-            );
-            console.log("COMMENT CREATED");
-            campground.comments.push(comment);
-            campground.save();
-        }
+        // for (const seed of seeds) {
+        //     let campground = await Campground.create(seed);
+        //     console.log("CREATED A CAMPGROUND");
+        //     let comment = await Comment.create(
+        //         {
+        //             text: "This place is greate, but i wish there were a toilet",
+        //             author: "Homer"
+        //         }
+        //     );
+        //     console.log("COMMENT CREATED");
+        //     campground.comments.push(comment);
+        //     campground.save();
+        // }
     } catch (error) {
         console.log(error);
     }
