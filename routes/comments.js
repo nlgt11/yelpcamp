@@ -34,6 +34,7 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
             });
         } else {
             console.log(err);
+            req.flash("Error", "Something went wrong, please try again later!");
             res.redirect("/campgrounds/" + req.params.id);
         }
     });
@@ -46,6 +47,7 @@ router.get("/:comment_id/edit", middleware.isLoggedIn, middleware.checkCommentOw
             res.render("comments/edit", {campground_id: req.params.id ,comment: foundComment});
         } else {
             console.log(err);
+            req.flash("Error", "Something went wrong, please try again later!");
             res.redirect("back");
         }
     });
@@ -57,6 +59,7 @@ router.put("/:comment_id", middleware.isLoggedIn, middleware.checkCommentOwnerSh
             res.redirect("/campgrounds/" + req.params.id);
         } else {
             console.log(err);
+            req.flash("Error", "Something went wrong, please try again later!");
             res.redirect("back");
         }
     });
@@ -70,6 +73,7 @@ router.delete("/:comment_id", middleware.isLoggedIn, middleware.checkCommentOwne
             res.redirect("/campgrounds/" + req.params.id);
         } else {
             console.log(err);
+            req.flash("Error", "Something went wrong, please try again later!");
             res.redirect("back");
         }
     });

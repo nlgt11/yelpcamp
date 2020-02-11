@@ -28,6 +28,7 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
 
     Campground.create(newCampground, (err, newlyAdded) => {
         if (!err) {
+            req.flash("success", "Campground created!")
             res.redirect("/campgrounds");
         } 
         else {
@@ -42,6 +43,8 @@ router.get("/new", middleware.isLoggedIn, (req, res) => {
     res.render("campgrounds/new");
 });
 
+
+//Show a campground
 router.get("/:id", (req, res) => {
     Campground.findById(req.params.id).populate("comments").exec((err, foundCampground) => {
         if (!err) {

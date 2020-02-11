@@ -6,6 +6,7 @@ middlewareObj.isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     }
+    req.flash("error", "You need to login first!");
     res.redirect("/login");
 }
 
@@ -24,6 +25,7 @@ middlewareObj.checkCampgroundOwnerShip = (req, res, next) => {
             }
         });
     } else {
+        req.flash("error", "Permission denied!");
         res.redirect("back");
     }
 }
@@ -43,6 +45,7 @@ middlewareObj.checkCommentOwnerShip = (req, res, next) => {
             }
         });
     } else {
+        req.flash("error", "Permission denied!");
         res.redirect("back");
     }
 }
