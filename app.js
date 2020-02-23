@@ -9,7 +9,7 @@ const   express         = require("express"),
         User            = require("./models/user"),
         methodOverride  = require("method-override");
 
-var     commentRoutes       = require("./routes/comments"),
+const   commentRoutes       = require("./routes/comments"),
         campgroundRoutes    = require("./routes/campgrounds"),
         indexRoutes         = require("./routes/index"); 
 
